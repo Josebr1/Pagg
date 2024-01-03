@@ -1,0 +1,6 @@
+@Boleto.Service_HostAddress = http://localhost:5038
+
+GET {{Boleto.Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
