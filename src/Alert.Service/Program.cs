@@ -1,4 +1,5 @@
 using Alert.Service;
+using Alert.Service.Events;
 using MassTransit;
 
 var builder = Host.CreateApplicationBuilder(args);
@@ -20,7 +21,16 @@ builder.Services.AddMassTransit(x =>
             h.Username(user);
             h.Password(password);
         });
+
+        config.ReceiveEndpoint(queue, e =>
+        {
+            e.Consumer<BankSlipRegistrationConsumer>(context);    
+        });
+
+        config.ConfigureEndpoints(context);
     });
+
+    x.AddConsumer<BankSlipRegistrationConsumer>();
 });
 
 var host = builder.Build();

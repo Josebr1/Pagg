@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boleto.Service", "src\Boleto.Service\Boleto.Service.csproj", "{43BC0648-E27F-4523-A209-717032C19193}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boleto.Api", "src\Boleto.Service\Boleto.Api.csproj", "{43BC0648-E27F-4523-A209-717032C19193}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alert.Service", "src\Alert.Service\Alert.Service.csproj", "{901D4B0A-CBD1-4969-AB7A-164DCCA3BF15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alert.Service", "src\Alert.Service\Alert.Service.csproj", "{901D4B0A-CBD1-4969-AB7A-164DCCA3BF15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pagg.Core", "src\Pagg.Core\Pagg.Core.csproj", "{CE314D39-406F-47A5-90A0-451CC1E798AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{901D4B0A-CBD1-4969-AB7A-164DCCA3BF15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{901D4B0A-CBD1-4969-AB7A-164DCCA3BF15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{901D4B0A-CBD1-4969-AB7A-164DCCA3BF15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE314D39-406F-47A5-90A0-451CC1E798AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE314D39-406F-47A5-90A0-451CC1E798AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE314D39-406F-47A5-90A0-451CC1E798AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE314D39-406F-47A5-90A0-451CC1E798AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
