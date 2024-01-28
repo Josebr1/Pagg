@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-Alert.Service-28057938-c06b-4424-a740-0fb3cf7ba3a4</UserSecretsId>
+    <UserSecretsId>dotnet-BankSlipRegistration.Service-28057938-c06b-4424-a740-0fb3cf7ba3a4</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>

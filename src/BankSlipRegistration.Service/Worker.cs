@@ -1,4 +1,4 @@
-namespace Alert.Service
+namespace BankSlipRegistration.Service
 {
     public class Worker : BackgroundService
     {

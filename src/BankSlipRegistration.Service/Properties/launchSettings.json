@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Alert.Service": {
+    "BankSlipRegistration.Service": {
       "commandName": "Project",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"

@@ -1,9 +1,14 @@
+using Boleto.Api;
+using Boleto.Api.Events;
 using MassTransit;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("pagg"));
 
 var configuration = builder.Configuration;
 
@@ -27,14 +32,27 @@ builder.Services.AddMassTransit(x =>
 
 var app = builder.Build();
 
-app.MapPost("/boleto", async (Pagg.Core.Entities.Boleto boleto, IBus bus) =>
+app.MapPost("/boleto", async (Pagg.Core.Entities.Boleto boleto, IBus bus, ApiContext db) =>
 {
     var queue = configuration.GetSection("MassTransit")["QueueName"];
 
-    var endpoint = await bus.GetSendEndpoint(new Uri($"queue:{queue}"));
-    await endpoint.Send(boleto);
+    db.Boletos.Add(boleto);
+    await db.SaveChangesAsync();
 
-    return Results.Ok();
+    // Envia boleto para a fila de registros
+    await new BankSlipRegistrationProduction(bus)
+    .Send(queue, boleto);
+
+    return Results.Ok(boleto);
+});
+
+app.MapGet("/boleto/{id}", async ([FromRoute] int id, ApiContext db) =>
+{
+    var boleto = await db.Boletos.FirstOrDefaultAsync(b => b.Id == id);
+
+    if (boleto == null) return Results.NotFound();
+
+    return Results.Ok(boleto);
 });
 
 if (app.Environment.IsDevelopment())
