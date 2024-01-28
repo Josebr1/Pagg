@@ -18,6 +18,7 @@ namespace Pagg.Core.Entities
         public decimal Multa { get; set; }
         public decimal Juros { get; set; }
         public decimal Desconto { get; set; }
+        public string Email { get; set; }
 
 
         public Boleto()

@@ -1,9 +1,11 @@
 using BankSlipRegistration.Service;
 using BankSlipRegistration.Service.Events;
+using BankSlipRegistration.Service.Services;
 using MassTransit;
 
 var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<Worker>();
+builder.Services.AddTransient<IAlertService, AlertService>();
 
 var configuration = builder.Configuration;
 
