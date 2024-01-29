@@ -32,8 +32,11 @@ namespace Pagg.SendMailBankSlipAvailable
                 var email = data?.Email;
 
                 // Envia e-mail com as informações do boleto
+                var msgOk = $"Alerta de cobrança enviada com sucesso para o cliente: {sacado}-{email}.";
 
-                return new OkObjectResult($"Alerta de cobrança enviada com sucesso para o cliente: {sacado}-{email}.");
+                log.LogInformation(msgOk);
+
+                return new OkObjectResult(msgOk);
             } catch (Exception ex)
             {
                 return new BadRequestObjectResult(ex.Message);
